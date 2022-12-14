@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="corpo" onload="carregar()">
+    <nav class="p-5">
+        <header>
+            <h1 class="display-5 text-center text-white">
+                <i>
+                    Relogio automatico
+                </i>
+            </h1>
+        </header>
+        <main>
+            <section class="bg-white my-5">
+                <nav class="px-5">
+                    <div id="texto">
+                        <h1 class="texto">
+                                O horario vai aparecer aqui:
+                        </h1>
+                    </div>
+                    <div id="foto">
+                        <img id="imagem" class="w-100 rounded pb-4" src="" alt="">
+                    </div>
+                </nav>
+            </section>
+        </main>
+        <footer class="text-white text-center">
+            <p>
+                <i>
+                    &copy;Exercícios Vinicius Cesar
+                </i>
+            </p>
+        </footer>
+    </nav>
+    <script>
+        function carregar()
+         {
+            var msg = document.getElementById('texto')
+            var corpo = document.getElementById('corpo')
+            var img = document.getElementById('imagem')
+            var data = new Date()
+            var hora = data.getHours()
+            
+            if (hora > 0 && hora < 12) {
+                img.src = 'img/fotomanha.jpg'
+                msg.innerHTML = `Agora são ${hora} horas. Bom dia!!!`
+                msg.style.textAlign = 'center'
+                corpo.style.background ='#fce567ec'
+            }
+            else if (hora >= 12 && hora < 18) {
+                img.src = 'img/fototarde.jpg'
+                msg.innerHTML = `Agora são ${hora} horas. Boa tarde!!!`
+                corpo.style.background ='#d86c24dc'
+
+            } else {
+                img.src = 'img/fotonoite.jpg'
+                msg.innerHTML = `Agora são ${hora} horas. Boa noite!!!`
+                corpo.style.background ='#021944c0'
+            }
+
+        }
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
